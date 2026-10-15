@@ -1,0 +1,73 @@
+﻿ key,en,ar
+version,version ,إصدار 
+singleplayer,SINGLEPLAYER,لاعب فردي
+multiplayer,MULTIPLAYER,متعدد اللاعبين
+soon,SOON,قريبا
+settings,SETTINGS,الإعدادات
+quit,QUIT,خروج
+back,BACK,عودة
+screen,SCREEN,الشاشة
+max,MAX,حد الأقصى ل
+fps,FPS,عدد الأطارات
+full,FULL,كامل
+v-sync,V-SYNC,
+audio,AUDIO,الصوت
+delete,DELETE,حذف
+create,CREATE,إنشاء
+play,PLAY,لعب
+new,NEW,جديد
+world,WORLD,عالم
+craft,CRAFT,تصنيع
+"Crafting: ","Crafting: ","التصنيع: "
+"No matching recipe","No matching recipe","لا توجد وصفة مطابقة"
+"Can craft: %s x%d","Can craft: %s x%d","يمكن تصنيع: %s ×%d"
+MULTIPLAYER,MULTIPLAYER,متعدد اللاعبين
+HOST,HOST,استضافة
+JOIN,JOIN,انضمام
+IP,IP,IP
+BACK,BACK,عودة
+SCREEN,SCREEN,الشاشة
+"MAX FPS","MAX FPS","الحد الأقصى للإطارات"
+FPS,FPS,عدد الإطارات
+FULL,FULL,كامل
+V-SYNC,V-SYNC,مزامنة عمودية
+AUDIO,AUDIO,الصوت
+VOLUME,VOLUME,مستوى الصوت
+MUTE,MUTE,كتم
+CONTROL,CONTROL,التحكم
+LEFT,LEFT,يسار
+RIGHT,RIGHT,يمين
+JUMP,JUMP,قفز
+SPACE,SPACE,مسافة
+RUN,RUN,ركض
+SHIFT,SHIFT,شيفت
+CROUCH,CROUCH,انحناء
+CTRL,CTRL,كنترول
+INVENTORY,INVENTORY,المخزون
+CRAFTING,CRAFTING,التصنيع
+PAUSED,PAUSED,متوقف مؤقتًا
+MENU,MENU,القائمة
+"YOU DIED","YOU DIED","لقد متَّ"
+RESPAWN,RESPAWN,إحياء
+PLAY,PLAY,لعب
+"New World","New World","عالم جديد"
+Create,Create,إنشاء
+"Delete World","Delete World","حذف العالم"
+Yes,Yes,نعم
+"World Name:","World Name:","اسم العالم:"
+"World Name","World Name","اسم العالم"
+"FPS 15","FPS 15","15 إطار/ث"
+"FPS 30","FPS 30","30 إطار/ث"
+"FPS 60","FPS 60","60 إطار/ث"
+"FPS 90","FPS 90","90 إطار/ث"
+"FPS 120","FPS 120","120 إطار/ث"
+"FPS 150","FPS 150","150 إطار/ث"
+"FPS 180","FPS 180","180 إطار/ث"
+"FPS 200","FPS 200","200 إطار/ث"
+SOON,SOON,قريبًا
+SINGLEPLAYER,SINGLEPLAYER,لاعب فردي
+QUIT,QUIT,خروج
+DELETE,DELETE,حذف
+CREATE,CREATE,إنشاء
+"version ","version ","إصدار "
+SETTINGS,SETTINGS,الإعدادات

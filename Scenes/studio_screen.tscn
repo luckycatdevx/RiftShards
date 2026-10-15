@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://q284yvww1mvj"]
+
+[ext_resource type="Script" uid="uid://4sh47lp3fxa5" path="res://Scripts/studio_screen.gd" id="1_polpt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8knad"]
+load_path = "res://.godot/imported/RiftForger Logo.png-01e7627716dbea56249e735b4eabc12f.ctex"
+
+[sub_resource type="Animation" id="Animation_8knad"]
+resource_name = "Enter"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StudioName:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8, 1.8),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(160, 192), Vector2(608, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StudioLogo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.8),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(352.00003, 96), Vector2(128, 96)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StudioLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StudioName:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.46666667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.8, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 648), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background3:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.8, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 0), Vector2(1152, 648)]
+}
+
+[sub_resource type="Animation" id="Animation_polpt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StudioName:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 224)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StudioLogo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(352.00003, 96)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StudioLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StudioName:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 648)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background3:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyaeg"]
+_data = {
+&"Enter": SubResource("Animation_8knad"),
+&"RESET": SubResource("Animation_polpt")
+}
+
+[node name="Studio Screen" type="CanvasLayer" unique_id=1653074082]
+script = ExtResource("1_polpt")
+
+[node name="Background" type="ColorRect" parent="." unique_id=117425705]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+
+[node name="StudioName" type="Label" parent="." unique_id=1164419109]
+anchors_preset = -1
+anchor_left = 0.528
+anchor_top = 0.296
+anchor_right = 0.528
+anchor_bottom = 0.296
+offset_left = -448.25598
+offset_top = 32.192
+offset_right = -32.255493
+offset_bottom = 288.19202
+theme_override_colors/font_color = Color(0.6392157, 0.6392157, 0.6392157, 1)
+theme_override_colors/font_outline_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 80
+text = "RiftForger
+Studio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background2" type="ColorRect" parent="." unique_id=1410885049]
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 352.0
+offset_bottom = 544.0
+color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+
+[node name="StudioLogo" type="TextureRect" parent="." unique_id=645854494]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49400002
+anchor_right = 0.5
+anchor_bottom = 0.49400002
+offset_left = -223.99997
+offset_top = -224.112
+offset_right = 2016.0
+offset_bottom = 2015.8877
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_8knad")
+
+[node name="Background3" type="ColorRect" parent="." unique_id=892605543]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30980393, 0.34509805, 0.4, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=391671619]
+libraries/ = SubResource("AnimationLibrary_qyaeg")
+autoplay = &"Enter"

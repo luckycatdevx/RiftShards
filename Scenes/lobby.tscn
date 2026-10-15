@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://cder6k35c7pet"]
+
+[ext_resource type="Script" uid="uid://o3onbucs3w4q" path="res://Scripts/lobby.gd" id="1_nvaej"]
+[ext_resource type="Texture2D" uid="uid://h0c2gtfmxhhl" path="res://Assets/Texture/Ui/Button_Small.png" id="2_u1o2k"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvaej")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30980393, 0.34509805, 0.4, 1)
+
+[node name="WorldList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 592.0
+select_mode = 1
+same_column_width = true
+
+[node name="IPAddressEntry" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 96.0
+offset_right = 896.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 50
+placeholder_text = "IP"
+emoji_menu_enabled = false
+
+[node name="Host Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 832.00006
+offset_top = 272.0
+offset_right = 992.00006
+offset_bottom = 352.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("2_u1o2k")
+
+[node name="Host" type="Label" parent="Host Button"]
+layout_mode = 0
+offset_left = 34.285713
+offset_top = 11.428567
+offset_right = 284.2857
+offset_bottom = 161.42857
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "HOST"
+
+[node name="Join Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 447.99997
+offset_right = 992.0
+offset_bottom = 528.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("2_u1o2k")
+
+[node name="Join" type="Label" parent="Join Button"]
+layout_mode = 0
+offset_left = 34.285717
+offset_top = 11.428568
+offset_right = 254.28572
+offset_bottom = 161.42857
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "JOIN"
+
+[connection signal="pressed" from="Host Button" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Join Button" to="." method="_on_join_button_pressed"]

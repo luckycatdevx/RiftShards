@@ -1,0 +1,1004 @@
+[gd_scene format=3 uid="uid://cq6en72cn2a07"]
+
+[ext_resource type="Script" uid="uid://rqwhg8e11o4u" path="res://Scripts/player.gd" id="1_vgqql"]
+[ext_resource type="Texture2D" uid="uid://b61r1ikefop2d" path="res://Assets/Texture/Entity/Player.png" id="2_fd4e3"]
+[ext_resource type="AudioStream" uid="uid://c1dxbsclmdo2k" path="res://Assets/Sounds/tile break.wav" id="3_gymyn"]
+[ext_resource type="AudioStream" uid="uid://bsnu6eqnminj1" path="res://Assets/Sounds/hit.wav" id="3_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://dxfd1innc3fmo" path="res://Assets/Texture/Ui/Full Health.png" id="5_qqcod"]
+[ext_resource type="Texture2D" uid="uid://b283rxq47iqf1" path="res://Assets/Texture/Ui/Health.png" id="6_igrcy"]
+[ext_resource type="Texture2D" uid="uid://dr4sw6i1b7532" path="res://Assets/Texture/Ui/Full Hunger.png" id="7_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://d2mqmgovtijjj" path="res://Assets/Texture/Ui/Hunger.png" id="8_l6n3p"]
+[ext_resource type="PackedScene" uid="uid://2ux8e2bjpflc" path="res://Scenes/inventory_slot.tscn" id="8_ukyrk"]
+[ext_resource type="PackedScene" uid="uid://dj5kt38l0h8g3" path="res://Scenes/crafting_ui.tscn" id="10_7dp3o"]
+[ext_resource type="PackedScene" uid="uid://dobw1u11tugfx" path="res://Scenes/stop_menu.tscn" id="14_7dp3o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
+atlas = ExtResource("2_fd4e3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd4e3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_2ijsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1odr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_wpjfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}],
+"loop": true,
+"name": &"idle_crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olqyp")
+}],
+"loop": true,
+"name": &"run",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olqyp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gymyn"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqcod"]
+size = Vector2(15, 36)
+
+[sub_resource type="Gradient" id="Gradient_3smsa"]
+offsets = PackedFloat32Array(0.507404, 1)
+colors = PackedColorArray(0.75, 0.3125, 0, 0.21960784, 0.5370987, 0.09985284, 0, 0.2)
+
+[sub_resource type="Curve" id="Curve_fkybt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7dp3o"]
+_data = [Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), -1.2124211, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_fkybt"]
+offsets = PackedFloat32Array(0.2, 0.4, 0.5)
+colors = PackedColorArray(0.24609375, 0.12112427, 0, 1, 0, 0.75, 0.024999976, 1, 0, 0.1875, 0.75, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_gymyn"]
+offsets = PackedFloat32Array(0, 0.7, 0.996687)
+colors = PackedColorArray(0.004999995, 0, 0.15, 1, 0.008333325, 0, 0.25, 1, 0.004999995, 0, 0.15, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu2lt"]
+bg_color = Color(0.18359375, 0.27644008, 1, 0.8)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukyrk"]
+bg_color = Color(0, 0.095239684, 0.53515625, 0.8)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gymyn"]
+bg_color = Color(0.21960784, 0.30588236, 0.3529412, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.11764706, 0.16078432, 0.21568628, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Player" type="CharacterBody2D" unique_id=1521472254 groups=["Player"]]
+script = ExtResource("1_vgqql")
+metadata/_edit_vertical_guides_ = [1344.0, 0.0]
+
+[node name="Background" type="ColorRect" parent="." unique_id=441216039]
+offset_left = -568.0
+offset_top = -328.0
+offset_right = 582.0
+offset_bottom = 322.0
+color = Color(0.4199188, 0.5687745, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=210371037]
+zoom = Vector2(2.5, 2.5)
+process_callback = 0
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 12.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=922655046]
+scale = Vector2(1.1250001, 1.125)
+sprite_frames = SubResource("SpriteFrames_fd4e3")
+animation = &"crouch"
+autoplay = "idle"
+speed_scale = 0.5
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1383212252]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1760590164]
+shape = SubResource("CircleShape2D_gymyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1719943063]
+position = Vector2(-0.56, 0)
+shape = SubResource("RectangleShape2D_qqcod")
+
+[node name="Particles" type="Node2D" parent="." unique_id=898705072]
+
+[node name="Jump" type="CPUParticles2D" parent="Particles" unique_id=1001604836]
+position = Vector2(-0.56, 18)
+emitting = false
+amount = 56
+lifetime = 0.25
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(6.2, 1)
+gravity = Vector2(0, 150)
+linear_accel_max = 1000.0
+radial_accel_max = 100.0
+angle_max = 1000.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_3smsa")
+
+[node name="Run" type="CPUParticles2D" parent="Particles" unique_id=37306506]
+position = Vector2(-0.56, 18)
+emitting = false
+amount = 24
+lifetime = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(6.25, 1)
+gravity = Vector2(-400, -55)
+initial_velocity_max = 20.0
+angular_velocity_min = 1000.0
+angular_velocity_max = 5000.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_fkybt")
+color = Color(1, 1, 1, 0.466667)
+color_ramp = SubResource("Gradient_3smsa")
+
+[node name="TP1" type="CPUParticles2D" parent="Particles" unique_id=1311844296]
+position = Vector2(0, 18)
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(12, 1)
+gravity = Vector2(0, -300)
+angular_velocity_max = 50.0
+linear_accel_max = 1000.0
+radial_accel_max = 100.0
+angle_max = 1000.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_7dp3o")
+color_ramp = SubResource("Gradient_fkybt")
+
+[node name="TP2" type="CPUParticles2D" parent="Particles" unique_id=200099389]
+position = Vector2(0, 18)
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(12, 1)
+gravity = Vector2(0, -300)
+angular_velocity_max = 50.0
+linear_accel_max = 1000.0
+radial_accel_max = 100.0
+angle_max = 1000.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_7dp3o")
+color_ramp = SubResource("Gradient_gymyn")
+
+[node name="Sounds" type="Node2D" parent="." unique_id=1597962309]
+
+[node name="Eat" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1668027231]
+stream = ExtResource("3_gymyn")
+volume_db = 10.0
+pitch_scale = 0.25
+panning_strength = 0.0
+
+[node name="Damge" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1907956051]
+stream = ExtResource("3_pu2lt")
+pitch_scale = 3.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=980494195]
+
+[node name="Health Bar" type="TextureProgressBar" parent="UI" unique_id=2120415968]
+offset_left = 216.0
+offset_top = 464.0
+offset_right = 306.0
+offset_bottom = 473.0
+scale = Vector2(4, 4)
+max_value = 20.0
+value = 10.0
+texture_under = ExtResource("6_igrcy")
+texture_progress = ExtResource("5_qqcod")
+
+[node name="Hunger Bar" type="TextureProgressBar" parent="UI" unique_id=1181275044]
+offset_left = 600.0
+offset_top = 464.0
+offset_right = 690.0
+offset_bottom = 473.0
+scale = Vector2(4, 4)
+max_value = 20.0
+value = 10.0
+texture_under = ExtResource("8_l6n3p")
+texture_progress = ExtResource("7_fs7ks")
+
+[node name="Breath Bar" type="ProgressBar" parent="UI" unique_id=637383089]
+visible = false
+offset_left = 216.0
+offset_top = 440.0
+offset_right = 960.0
+offset_bottom = 454.0
+theme_override_styles/background = SubResource("StyleBoxFlat_pu2lt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ukyrk")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="HotbarPanel" type="Panel" parent="UI" unique_id=1256240117]
+offset_left = 360.0
+offset_top = 512.0
+offset_right = 816.0
+offset_bottom = 584.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gymyn")
+
+[node name="HotbarContainer" type="Control" parent="UI" unique_id=1196332662]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 360.0
+offset_top = 512.0
+offset_right = 824.0
+offset_bottom = 582.0
+
+[node name="Slot1" type="Panel" parent="UI/HotbarContainer" unique_id=1475240735]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 58.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot1" unique_id=935137244]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot1" unique_id=1483660279]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 26.0
+offset_right = 86.0
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot2" type="Panel" parent="UI/HotbarContainer" unique_id=2091525513]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot2" unique_id=1608308611]
+layout_mode = 0
+offset_left = 1.5258789e-05
+offset_right = 44.000015
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot2" unique_id=1121000493]
+layout_mode = 0
+offset_left = 25.999985
+offset_top = 26.0
+offset_right = 85.999985
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot3" type="Panel" parent="UI/HotbarContainer" unique_id=513240826]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 14.0
+offset_right = 154.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot3" unique_id=747117196]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot3" unique_id=1370078247]
+layout_mode = 0
+offset_left = 25.999992
+offset_top = 26.0
+offset_right = 86.0
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot4" type="Panel" parent="UI/HotbarContainer" unique_id=527542385]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 14.0
+offset_right = 202.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot4" unique_id=1308498343]
+layout_mode = 0
+offset_left = -1.4305115e-05
+offset_right = 43.999985
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot4" unique_id=1549600843]
+layout_mode = 0
+offset_left = 26.000015
+offset_top = 26.0
+offset_right = 86.000015
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot5" type="Panel" parent="UI/HotbarContainer" unique_id=2111323263]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 14.0
+offset_right = 250.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot5" unique_id=1799321013]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot5" unique_id=357239403]
+layout_mode = 0
+offset_left = 26.00003
+offset_top = 26.0
+offset_right = 86.00003
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot6" type="Panel" parent="UI/HotbarContainer" unique_id=188647695]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 14.0
+offset_right = 298.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot6" unique_id=1000600179]
+layout_mode = 0
+offset_left = 1.8119812e-05
+offset_right = 44.00002
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot6" unique_id=1312129518]
+layout_mode = 0
+offset_left = 25.99997
+offset_top = 26.0
+offset_right = 85.99997
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot7" type="Panel" parent="UI/HotbarContainer" unique_id=71580966]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 14.0
+offset_right = 346.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot7" unique_id=1140383715]
+layout_mode = 0
+offset_left = -2.670288e-05
+offset_right = 43.999973
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot7" unique_id=1610876493]
+layout_mode = 0
+offset_left = 25.999985
+offset_top = 26.0
+offset_right = 86.0
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot8" type="Panel" parent="UI/HotbarContainer" unique_id=574461289]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 14.0
+offset_right = 394.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot8" unique_id=1825476244]
+layout_mode = 0
+offset_left = 2.8729439e-05
+offset_right = 44.00003
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot8" unique_id=1915718628]
+layout_mode = 0
+offset_left = 26.00003
+offset_top = 26.0
+offset_right = 86.000046
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot9" type="Panel" parent="UI/HotbarContainer" unique_id=1868798720]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 14.0
+offset_right = 442.0
+offset_bottom = 58.0
+
+[node name="ItemTexture" type="TextureRect" parent="UI/HotbarContainer/Slot9" unique_id=1375495808]
+layout_mode = 0
+offset_left = 2.670288e-05
+offset_right = 44.000027
+offset_bottom = 44.0
+
+[node name="QuantityLabel" type="Label" parent="UI/HotbarContainer/Slot9" unique_id=106813065]
+layout_mode = 0
+offset_left = 25.99997
+offset_top = 25.999985
+offset_right = 85.99997
+offset_bottom = 100.999985
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="InventoryPanel" type="Panel" parent="UI" unique_id=1865910304]
+visible = false
+offset_left = 40.0
+offset_top = 88.0
+offset_right = 760.0
+offset_bottom = 274.6667
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+
+[node name="CraftingUI" parent="UI/InventoryPanel" unique_id=1912149597 instance=ExtResource("10_7dp3o")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 432.0
+offset_top = -10.666666
+offset_right = 1585.3331
+offset_bottom = 635.99994
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.325, 0.325)
+
+[node name="GridContainer" type="Control" parent="UI/InventoryPanel" unique_id=1151080281]
+anchors_preset = 0
+offset_right = 517.3333
+offset_bottom = 186.66667
+
+[node name="InventorySlot" parent="UI/InventoryPanel/GridContainer" unique_id=1705249148 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 10.666666
+offset_right = 186.0
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot2" parent="UI/InventoryPanel/GridContainer" unique_id=77369584 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 64.0
+offset_top = 10.666666
+offset_right = 242.0
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot3" parent="UI/InventoryPanel/GridContainer" unique_id=1543817290 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 120.0
+offset_top = 10.666666
+offset_right = 298.0
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot4" parent="UI/InventoryPanel/GridContainer" unique_id=192744988 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 176.0
+offset_top = 10.666666
+offset_right = 354.0
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot5" parent="UI/InventoryPanel/GridContainer" unique_id=1770049906 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 232.00002
+offset_top = 10.666666
+offset_right = 410.0
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot6" parent="UI/InventoryPanel/GridContainer" unique_id=642535934 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 288.00003
+offset_top = 10.666666
+offset_right = 466.00003
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot7" parent="UI/InventoryPanel/GridContainer" unique_id=1661315435 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 344.00003
+offset_top = 10.666666
+offset_right = 522.0
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot8" parent="UI/InventoryPanel/GridContainer" unique_id=2136250378 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 400.00003
+offset_top = 10.666666
+offset_right = 578.0
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot9" parent="UI/InventoryPanel/GridContainer" unique_id=1313725699 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 456.00015
+offset_top = 10.666666
+offset_right = 634.0001
+offset_bottom = 188.66667
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot10" parent="UI/InventoryPanel/GridContainer" unique_id=211041026 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 66.666664
+offset_right = 186.0
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot11" parent="UI/InventoryPanel/GridContainer" unique_id=1687483519 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 64.0
+offset_top = 66.666664
+offset_right = 242.0
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot12" parent="UI/InventoryPanel/GridContainer" unique_id=1782393756 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 120.0
+offset_top = 66.666664
+offset_right = 298.0
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot13" parent="UI/InventoryPanel/GridContainer" unique_id=1888698860 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 176.0
+offset_top = 66.666664
+offset_right = 354.0
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot14" parent="UI/InventoryPanel/GridContainer" unique_id=1148174496 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 232.00002
+offset_top = 66.666664
+offset_right = 410.0
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot15" parent="UI/InventoryPanel/GridContainer" unique_id=264951266 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 288.00003
+offset_top = 66.666664
+offset_right = 466.00003
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot16" parent="UI/InventoryPanel/GridContainer" unique_id=1952500230 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 344.00003
+offset_top = 66.666664
+offset_right = 522.0
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot17" parent="UI/InventoryPanel/GridContainer" unique_id=1203784271 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 400.00003
+offset_top = 66.666664
+offset_right = 578.0
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot18" parent="UI/InventoryPanel/GridContainer" unique_id=543407671 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 456.0001
+offset_top = 66.666664
+offset_right = 634.0001
+offset_bottom = 244.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot19" parent="UI/InventoryPanel/GridContainer" unique_id=1103785151 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 122.666664
+offset_right = 186.0
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot20" parent="UI/InventoryPanel/GridContainer" unique_id=1127334856 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 64.0
+offset_top = 122.666664
+offset_right = 242.0
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot21" parent="UI/InventoryPanel/GridContainer" unique_id=1730590161 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 120.0
+offset_top = 122.666664
+offset_right = 298.0
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot22" parent="UI/InventoryPanel/GridContainer" unique_id=122058804 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 176.0
+offset_top = 122.666664
+offset_right = 354.0
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot23" parent="UI/InventoryPanel/GridContainer" unique_id=971205317 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 232.00008
+offset_top = 122.666664
+offset_right = 410.00006
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot24" parent="UI/InventoryPanel/GridContainer" unique_id=232289176 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 288.00003
+offset_top = 122.666664
+offset_right = 466.00003
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot25" parent="UI/InventoryPanel/GridContainer" unique_id=1044005527 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 344.00003
+offset_top = 122.666664
+offset_right = 522.0
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot26" parent="UI/InventoryPanel/GridContainer" unique_id=74943671 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 400.00003
+offset_top = 122.666664
+offset_right = 578.0
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="InventorySlot27" parent="UI/InventoryPanel/GridContainer" unique_id=147767133 instance=ExtResource("8_ukyrk")]
+custom_minimum_size = Vector2(178, 178)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 456.00003
+offset_top = 122.666664
+offset_right = 634.0
+offset_bottom = 300.66666
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="FPSCounter" type="Label" parent="UI" unique_id=1876454007]
+offset_right = 1.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 30
+
+[node name="AttackCooldown" type="ProgressBar" parent="UI" unique_id=2085444784]
+offset_left = 832.0
+offset_top = 512.0
+offset_right = 896.0
+offset_bottom = 584.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_gymyn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gymyn")
+max_value = 0.25
+fill_mode = 3
+
+[node name="Label" type="Label" parent="UI/AttackCooldown" unique_id=1217605172]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 10
+text = "Attack
+
+Cooldown"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stop Menu" parent="." unique_id=1659898885 instance=ExtResource("14_7dp3o")]
+visible = false

@@ -1,0 +1,181 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2lml818doqdh"]
+
+[ext_resource type="Script" uid="uid://3teowhyj7uu1" path="res://Scripts/menu.gd" id="1_jsrd8"]
+[ext_resource type="Texture2D" uid="uid://b4uha26njgfwx" path="res://Assets/Texture/Ui/Button_Large.png" id="2_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://br55rkmoepa4r" path="res://Assets/Texture/Ui/Button_Medium.png" id="3_jsrd8"]
+[ext_resource type="Texture2D" uid="uid://urw4b2r0t31l" path="res://Assets/Texture/Ui/Small_Logo.png" id="3_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://h0c2gtfmxhhl" path="res://Assets/Texture/Ui/Button_Small.png" id="4_wbdvm"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jsrd8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30980393, 0.34509805, 0.4, 1)
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 240.0
+offset_top = 104.0
+offset_right = 368.0
+offset_bottom = 232.0
+grow_horizontal = 2
+texture = ExtResource("3_wbdvm")
+expand_mode = 1
+
+[node name="Tile" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -204.0
+offset_right = 224.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+theme_override_colors/font_shadow_color = Color(0.140625, 0.140625, 0.140625, 1)
+theme_override_colors/font_outline_color = Color(0.2578125, 0.2578125, 0.2578125, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 15
+theme_override_font_sizes/font_size = 80
+text = "RIFTSHARDS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -36.0
+offset_right = 324.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Multiplayer Button" type="TextureButton" parent="Play Buttons"]
+modulate = Color(0.33984375, 0.33984375, 0.33984375, 1)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_wbdvm")
+
+[node name="Multiplayer" type="Label" parent="Play Buttons/Multiplayer Button"]
+layout_mode = 0
+offset_left = 34.285717
+offset_right = 664.2857
+offset_bottom = 150.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Soon" type="Label" parent="Play Buttons/Multiplayer Button"]
+layout_mode = 0
+offset_left = 102.85715
+offset_top = 45.714275
+offset_right = 293.3333
+offset_bottom = 120.71428
+scale = Vector2(0.6, 0.6)
+theme_override_font_sizes/font_size = 50
+text = "soon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Singleplayer Button" type="TextureButton" parent="Play Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("2_wbdvm")
+
+[node name="Singleplayer" type="Label" parent="Play Buttons/Singleplayer Button"]
+layout_mode = 0
+offset_left = 11.999975
+offset_top = 11.0
+offset_right = 731.9999
+offset_bottom = 161.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "singleplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Other Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 76.0
+offset_right = 212.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quit Button" type="TextureButton" parent="Other Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("4_wbdvm")
+
+[node name="Quit" type="Label" parent="Other Buttons/Quit Button"]
+layout_mode = 0
+offset_left = 16.000006
+offset_top = 11.4285755
+offset_right = 336.0
+offset_bottom = 161.42857
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings Button" type="TextureButton" parent="Other Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_jsrd8")
+
+[node name="Settings" type="Label" parent="Other Buttons/Settings Button"]
+layout_mode = 0
+offset_left = 22.857153
+offset_top = 11.4285755
+offset_right = 515.7141
+offset_bottom = 161.42857
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 608.0
+offset_right = 83.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 20
+text = "version"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Play Buttons/Multiplayer Button" to="." method="_on_multiplayer_button_pressed"]
+[connection signal="pressed" from="Play Buttons/Singleplayer Button" to="." method="_on_singleplayer_button_pressed"]
+[connection signal="pressed" from="Other Buttons/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Other Buttons/Settings Button" to="." method="_on_settings_button_pressed"]

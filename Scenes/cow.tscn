@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://b763ug0uhk7p"]
+
+[ext_resource type="Script" uid="uid://dbpthla7hakwo" path="res://Scripts/cow.gd" id="1_asfwn"]
+[ext_resource type="Texture2D" uid="uid://cd0jbxqvknsg4" path="res://Assets/Texture/Entity/Cow.png" id="2_u4wuh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxqef"]
+atlas = ExtResource("2_u4wuh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpkvw"]
+atlas = ExtResource("2_u4wuh")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oad1y"]
+atlas = ExtResource("2_u4wuh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkidu"]
+atlas = ExtResource("2_u4wuh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjkae"]
+atlas = ExtResource("2_u4wuh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kflls"]
+atlas = ExtResource("2_u4wuh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvhs2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxqef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpkvw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oad1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkidu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjkae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kflls")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsh87"]
+size = Vector2(31, 33)
+
+[node name="Cow" type="CharacterBody2D" unique_id=1309960348]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_asfwn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2105084691]
+scale = Vector2(1.1250001, 1.125)
+sprite_frames = SubResource("SpriteFrames_bvhs2")
+animation = &"walk"
+autoplay = "idle"
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810426271]
+position = Vector2(0.5000005, 1.5)
+shape = SubResource("RectangleShape2D_fsh87")
+one_way_collision_margin = 0.0
+
+[node name="WallCheckRay" type="RayCast2D" parent="." unique_id=927842434]
+position = Vector2(0, 16)
+target_position = Vector2(35, 0)
+
+[node name="MovementTimer" type="Timer" parent="." unique_id=1441755308]
+
+[node name="DespawnTimer" type="Timer" parent="." unique_id=436110124]
+wait_time = 22.0
+autostart = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

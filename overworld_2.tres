@@ -1,0 +1,101 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cwmqen6y14csu"]
+
+[ext_resource type="Texture2D" uid="uid://d3vyw2r2uncgd" path="res://Assets/Texture/Blocks/Tiles.png" id="1_3huwb"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rmeny"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3huwb"]
+polygon = PackedVector2Array(-8, -4.0115967, -4.9571867, -6.991639, 3.9951215, -6.987419, 7.020293, -3.954287, 7.002808, 4.0172563, 3.9898658, 6.975418, 1.9570246, 6.9781523, 1.9571242, 8, -2.9599476, 8, -2.960082, 6.984765, -4.9332476, 6.9874187, -8, 4.0115967)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qdcgv"]
+polygon = PackedVector2Array(-4.0402503, -8, 4.040251, -8, 4.033441, -7.049407, 5.98874, -7.048948, 5.9684205, -4.1083436, 3.9973042, -2.0048742, 3.9256334, 8, -3.9256334, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ku78t"]
+polygon = PackedVector2Array(-2.0344527, -1.0315533, 1.9894736, -1.0351733, 2.0218225, 8, -1.9894733, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hf0oe"]
+texture = ExtResource("1_3huwb")
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_3 = "grass"
+0:0/0/custom_data_4 = "shovel"
+1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/custom_data_3 = "dirt"
+1:0/0/custom_data_4 = "shovel"
+2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+2:0/0/custom_data_1 = true
+2:0/0/custom_data_3 = "water"
+3:0/0 = 0
+3:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qdcgv")
+3:0/0/custom_data_3 = "wood"
+3:0/0/custom_data_4 = "axe"
+0:1/0 = 0
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_3huwb")
+0:1/0/custom_data_3 = "wood"
+0:1/0/custom_data_4 = "axe"
+1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_3 = "planks"
+1:1/0/custom_data_4 = "axe"
+2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+2:1/0/custom_data_3 = "crafting_table"
+2:1/0/custom_data_4 = "axe"
+3:1/0 = 0
+3:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ku78t")
+3:1/0/custom_data_3 = "torch"
+3:1/0/custom_data_4 = "axe"
+0:2/0 = 0
+0:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/custom_data_3 = "stone"
+0:2/0/custom_data_4 = "pickaxe"
+0:2/0/custom_data_5 = 1
+1:2/0 = 0
+1:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/custom_data_3 = "coal"
+1:2/0/custom_data_4 = "pickaxe"
+1:2/0/custom_data_5 = 1
+2:2/0 = 0
+2:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/custom_data_3 = "iron"
+2:2/0/custom_data_4 = "pickaxe"
+2:2/0/custom_data_5 = 1
+3:2/0 = 0
+3:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0/custom_data_3 = "gold"
+3:2/0/custom_data_4 = "pickaxe"
+3:2/0/custom_data_5 = 2
+0:3/0 = 0
+0:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/custom_data_3 = "diamond"
+0:3/0/custom_data_4 = "pickaxe"
+0:3/0/custom_data_5 = 2
+
+[resource]
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+custom_data_layer_0/name = "is_crafting_table"
+custom_data_layer_0/type = 0
+custom_data_layer_1/name = "is_water"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "water_level"
+custom_data_layer_2/type = 2
+custom_data_layer_3/name = "name"
+custom_data_layer_3/type = 4
+custom_data_layer_4/name = "tool_type"
+custom_data_layer_4/type = 4
+custom_data_layer_5/name = "hardness_level"
+custom_data_layer_5/type = 2
+sources/0 = SubResource("TileSetAtlasSource_hf0oe")

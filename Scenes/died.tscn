@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://qylp75osjaru"]
+
+[ext_resource type="Script" uid="uid://cdbb5b3ci7vhd" path="res://Scripts/died.gd" id="1_2xe64"]
+[ext_resource type="Texture2D" uid="uid://br55rkmoepa4r" path="res://Assets/Texture/Ui/Button_Medium.png" id="2_ll48k"]
+[ext_resource type="Texture2D" uid="uid://h0c2gtfmxhhl" path="res://Assets/Texture/Ui/Button_Small.png" id="3_foicp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avf5k"]
+bg_color = Color(0.819608, 0.0705882, 0, 0.47451)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 25
+
+[node name="Died" type="CanvasLayer"]
+script = ExtResource("1_2xe64")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.898039)
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avf5k")
+
+[node name="You Died" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -260.0
+offset_right = 168.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "YOU DIED"
+
+[node name="Respawn Button" type="TextureButton" parent="."]
+offset_left = 400.0
+offset_top = 224.0
+offset_right = 640.0
+offset_bottom = 304.0
+scale = Vector2(1.6, 1.4)
+texture_normal = ExtResource("2_ll48k")
+
+[node name="Respawn" type="Label" parent="Respawn Button"]
+layout_mode = 0
+offset_left = 40.000004
+offset_top = 11.4285755
+offset_right = 480.0
+offset_bottom = 161.42857
+scale = Vector2(0.35, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "RESPAWN"
+
+[node name="Menu Button" type="TextureButton" parent="."]
+offset_left = 480.0
+offset_top = 400.0
+offset_right = 640.0
+offset_bottom = 480.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("3_foicp")
+
+[node name="Menu" type="Label" parent="Menu Button"]
+layout_mode = 0
+offset_left = 22.857151
+offset_top = 11.4285755
+offset_right = 282.85715
+offset_bottom = 161.42857
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "MENU"
+
+[connection signal="pressed" from="Menu Button" to="." method="_on_menu_button_pressed"]

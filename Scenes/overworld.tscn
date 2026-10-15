@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://c2ugt61hkrl6i"]
+
+[ext_resource type="Script" uid="uid://d4cauvjju1f44" path="res://Scripts/overworld.gd" id="1_c0h7r"]
+[ext_resource type="PackedScene" uid="uid://cq6en72cn2a07" path="res://Scenes/player.tscn" id="2_v1c68"]
+[ext_resource type="Texture2D" uid="uid://d3vyw2r2uncgd" path="res://Assets/Texture/Blocks/Tiles.png" id="3_2ngsa"]
+[ext_resource type="AudioStream" uid="uid://c1dxbsclmdo2k" path="res://Assets/Sounds/tile break.wav" id="9_46gqp"]
+[ext_resource type="Texture2D" uid="uid://bhc3pruoeu3vj" path="res://Assets/Texture/Blocks/16x16 Simple Cracks.png" id="9_v1c68"]
+[ext_resource type="AudioStream" uid="uid://bbt0b1pyp1d80" path="res://Assets/Sounds/tile place.wav" id="10_8k6i5"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rmeny"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3huwb"]
+polygon = PackedVector2Array(-8, -4.0115967, -4.9571867, -6.991639, 3.9951215, -6.987419, 7.020293, -3.954287, 7.002808, 4.0172563, 3.9898658, 6.975418, 1.9570246, 6.9781523, 1.9571242, 8, -2.9599476, 8, -2.960082, 6.984765, -4.9332476, 6.9874187, -8, 4.0115967)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qdcgv"]
+polygon = PackedVector2Array(-4.0402503, -8, 4.040251, -8, 4.033441, -7.049407, 5.98874, -7.048948, 5.9684205, -4.1083436, 3.9973042, -2.0048742, 3.9256334, 8, -3.9256334, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ku78t"]
+polygon = PackedVector2Array(-2.0344527, -1.0315533, 1.9894736, -1.0351733, 2.0218225, 8, -1.9894733, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hf0oe"]
+texture = ExtResource("3_2ngsa")
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_3 = "grass"
+0:0/0/custom_data_4 = "shovel"
+1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/custom_data_3 = "dirt"
+1:0/0/custom_data_4 = "shovel"
+2:0/0 = 0
+2:0/0/modulate = Color(1, 1, 1, 0.8)
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+2:0/0/custom_data_1 = true
+2:0/0/custom_data_3 = "water"
+3:0/0 = 0
+3:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qdcgv")
+3:0/0/custom_data_3 = "wood"
+3:0/0/custom_data_4 = "axe"
+0:1/0 = 0
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_3huwb")
+0:1/0/custom_data_3 = "wood"
+0:1/0/custom_data_4 = "axe"
+1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_3 = "planks"
+1:1/0/custom_data_4 = "axe"
+2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+2:1/0/custom_data_3 = "crafting_table"
+2:1/0/custom_data_4 = "axe"
+3:1/0 = 0
+3:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ku78t")
+3:1/0/custom_data_3 = "torch"
+3:1/0/custom_data_4 = "axe"
+0:2/0 = 0
+0:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/custom_data_3 = "stone"
+0:2/0/custom_data_4 = "pickaxe"
+0:2/0/custom_data_5 = 1
+1:2/0 = 0
+1:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/custom_data_3 = "coal"
+1:2/0/custom_data_4 = "pickaxe"
+1:2/0/custom_data_5 = 1
+2:2/0 = 0
+2:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/custom_data_3 = "iron"
+2:2/0/custom_data_4 = "pickaxe"
+2:2/0/custom_data_5 = 1
+3:2/0 = 0
+3:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0/custom_data_3 = "gold"
+3:2/0/custom_data_4 = "pickaxe"
+3:2/0/custom_data_5 = 2
+0:3/0 = 0
+0:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rmeny")
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/custom_data_3 = "diamond"
+0:3/0/custom_data_4 = "pickaxe"
+0:3/0/custom_data_5 = 2
+
+[sub_resource type="TileSet" id="TileSet_auytq"]
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+custom_data_layer_0/name = "is_crafting_table"
+custom_data_layer_0/type = 0
+custom_data_layer_1/name = "is_water"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "water_level"
+custom_data_layer_2/type = 2
+custom_data_layer_3/name = "name"
+custom_data_layer_3/type = 4
+custom_data_layer_4/name = "tool_type"
+custom_data_layer_4/type = 4
+custom_data_layer_5/name = "hardness_level"
+custom_data_layer_5/type = 2
+sources/0 = SubResource("TileSetAtlasSource_hf0oe")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvbdg"]
+texture = ExtResource("9_v1c68")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hmc15"]
+sources/0 = SubResource("TileSetAtlasSource_uvbdg")
+
+[node name="Overworld" type="Node2D" unique_id=1340291478]
+script = ExtResource("1_c0h7r")
+
+[node name="TorchLightsContainer" type="Node2D" parent="." unique_id=1729660774]
+
+[node name="SunLight" type="DirectionalLight2D" parent="." unique_id=2139618484]
+energy = 0.2
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.5
+
+[node name="DayNightCycle" type="CanvasModulate" parent="." unique_id=1461351012]
+
+[node name="Player" parent="." unique_id=1756633479 instance=ExtResource("2_v1c68")]
+position = Vector2(0, 608)
+
+[node name="Entity" type="Node2D" parent="." unique_id=542301105]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1123809519]
+format = 2
+layer_0/tile_data = PackedInt32Array(131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 196600, 65536, 0, 196601, 65536, 0, 196602, 65536, 0, 196603, 65536, 0, 196604, 65536, 0, 196605, 65536, 0, 196606, 65536, 0, 196607, 65536, 0, 131072, 65536, 0, 131073, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, 131079, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 131082, 65536, 0, 131083, 65536, 0, 131084, 65536, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=1223029335]
+tile_set = SubResource("TileSet_auytq")
+
+[node name="CracksLayer" type="TileMapLayer" parent="TileMap" unique_id=1410081833]
+tile_set = SubResource("TileSet_hmc15")
+
+[node name="AutoSave" type="Timer" parent="." unique_id=1519001486]
+wait_time = 120.0
+autostart = true
+
+[node name="MobsSpawnTimer" type="Timer" parent="." unique_id=362267253]
+wait_time = 22.0
+autostart = true
+
+[node name="ZombieSpawnTimer" type="Timer" parent="." unique_id=480708136]
+wait_time = 18.0
+
+[node name="Break Sound" type="AudioStreamPlayer2D" parent="." unique_id=1823739926]
+stream = ExtResource("9_46gqp")
+volume_db = -10.0
+
+[node name="Place Sound" type="AudioStreamPlayer2D" parent="." unique_id=179572231]
+stream = ExtResource("10_8k6i5")
+
+[connection signal="timeout" from="AutoSave" to="." method="_auto_save"]
+[connection signal="timeout" from="MobsSpawnTimer" to="." method="_on_mobs_spawn_timer_timeout"]
+[connection signal="timeout" from="ZombieSpawnTimer" to="." method="_on_zombie_spawn_timer_timeout"]

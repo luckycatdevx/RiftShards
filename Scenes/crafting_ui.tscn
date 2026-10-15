@@ -1,0 +1,463 @@
+[gd_scene format=3 uid="uid://dj5kt38l0h8g3"]
+
+[ext_resource type="Script" uid="uid://dtej74rwg1glr" path="res://Scripts/crafting_ui.gd" id="1_frng7"]
+[ext_resource type="Texture2D" uid="uid://h0c2gtfmxhhl" path="res://Assets/Texture/Ui/Button_Small.png" id="2_hhof2"]
+[ext_resource type="Script" uid="uid://dels4rbs5caxh" path="res://Scripts/crafting_slot.gd" id="3_slot"]
+[ext_resource type="Script" uid="uid://cjdvrh3q1bj5h" path="res://Scripts/crafting_output_slot.gd" id="4_outslot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i03j"]
+bg_color = Color(0.72538966, 0.72538966, 0.72538966, 0.60800004)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frng7"]
+bg_color = Color(0, 0, 0, 0.607843)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvsx2"]
+bg_color = Color(0, 0, 0, 0.607843)
+border_width_left = 39
+border_width_top = 39
+border_color = Color(0, 0, 0, 0.607843)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CraftingUI" type="Control" unique_id=677515240]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frng7")
+
+[node name="Panel" type="Panel" parent="." unique_id=820436522]
+layout_mode = 0
+offset_left = 359.99997
+offset_top = 64.0
+offset_right = 699.19995
+offset_bottom = 390.39996
+scale = Vector2(1.25, 1.25)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8i03j")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1364217870]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -276.0
+offset_right = 166.40002
+offset_bottom = 171.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+theme_override_styles/panel = SubResource("StyleBoxFlat_frng7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=846969790]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=1402760780]
+visible = false
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RecipeListContainer" type="GridContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=1848969413]
+layout_mode = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=651136528]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemNameLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=828951533]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="IngredientsContainer" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=986730907]
+layout_mode = 2
+
+[node name="Slot1" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=1316720080]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 70.4
+offset_top = -2.3999996
+offset_right = 166.4
+offset_bottom = 93.6
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot1" unique_id=1338167753]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.4702
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot1" unique_id=1531764553]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.47018
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot1" unique_id=1869896193]
+layout_mode = 0
+offset_left = 57.600002
+offset_top = 57.600006
+offset_right = 117.600006
+offset_bottom = 132.6
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=900313156]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 179.19998
+offset_top = -2.3999996
+offset_right = 275.19998
+offset_bottom = 93.6
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot2" unique_id=994879155]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 150.0
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot2" unique_id=1098893926]
+layout_mode = 0
+offset_right = 150.47028
+offset_bottom = 150.47018
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot2" unique_id=1203097051]
+layout_mode = 0
+offset_left = 57.600002
+offset_top = 57.599995
+offset_right = 117.60001
+offset_bottom = 132.59999
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot3" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=1164934555]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 287.99997
+offset_top = -2.3999996
+offset_right = 383.99997
+offset_bottom = 93.6
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot3" unique_id=931231283]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.4702
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot3" unique_id=172789268]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_right = 0.067
+offset_left = -6.432016
+offset_right = 144.0382
+offset_bottom = 150.47018
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot3" unique_id=981273504]
+layout_mode = 0
+offset_left = 57.600006
+offset_top = 57.599995
+offset_right = 117.60001
+offset_bottom = 132.59999
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot4" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=520546164]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 70.40001
+offset_top = 100.00001
+offset_right = 166.40001
+offset_bottom = 196.0
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot4" unique_id=1050863047]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot4" unique_id=677356238]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.4702
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot4" unique_id=413308268]
+layout_mode = 0
+offset_left = 57.599995
+offset_top = 57.600002
+offset_right = 117.6
+offset_bottom = 132.60002
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot5" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=210770872]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 179.19997
+offset_top = 100.00001
+offset_right = 275.19995
+offset_bottom = 196.00002
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot5" unique_id=200299661]
+layout_mode = 0
+offset_left = 5.594635e-05
+offset_right = 150.47028
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot5" unique_id=1708213344]
+layout_mode = 0
+offset_left = 1.7166138e-05
+offset_right = 150.47029
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot5" unique_id=570554718]
+layout_mode = 0
+offset_left = 57.600037
+offset_top = 57.599987
+offset_right = 117.60004
+offset_bottom = 132.6
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot6" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=1331891509]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 287.99997
+offset_top = 100.00001
+offset_right = 383.99997
+offset_bottom = 196.00002
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot6" unique_id=2028427703]
+layout_mode = 0
+offset_left = -1.4305115e-05
+offset_right = 150.4702
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot6" unique_id=823651644]
+layout_mode = 0
+offset_left = -1.4305115e-05
+offset_right = 150.4702
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot6" unique_id=1675744159]
+layout_mode = 0
+offset_left = 57.599983
+offset_top = 57.600006
+offset_right = 117.59998
+offset_bottom = 132.60002
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot7" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=407917342]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 70.4
+offset_top = 202.4
+offset_right = 166.4
+offset_bottom = 298.4
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot7" unique_id=1536535310]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.0
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot7" unique_id=1858134606]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot7" unique_id=1675499275]
+layout_mode = 0
+offset_left = 57.6
+offset_top = 57.59999
+offset_right = 117.600006
+offset_bottom = 132.6
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot8" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=516547808]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 179.19998
+offset_top = 202.4
+offset_right = 275.19998
+offset_bottom = 298.4
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot8" unique_id=626345758]
+layout_mode = 0
+offset_right = 150.47021
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot8" unique_id=697895711]
+layout_mode = 0
+offset_right = 150.47028
+offset_bottom = 150.47021
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot8" unique_id=205541965]
+layout_mode = 0
+offset_left = 57.59999
+offset_top = 57.6
+offset_right = 117.59999
+offset_bottom = 132.6
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="Slot9" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer" unique_id=1119877360]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 202.4
+offset_right = 384.0
+offset_bottom = 298.4
+script = ExtResource("3_slot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot9" unique_id=850188742]
+layout_mode = 0
+offset_right = 150.62685
+offset_bottom = 150.47018
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot9" unique_id=1067034565]
+layout_mode = 0
+offset_top = 1.0251999e-05
+offset_right = 150.4701
+offset_bottom = 150.47023
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/IngredientsContainer/Slot9" unique_id=44366508]
+layout_mode = 0
+offset_left = 57.599983
+offset_top = 57.59999
+offset_right = 117.59998
+offset_bottom = 132.6
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[node name="HBoxContainer" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1013603168]
+layout_mode = 2
+
+[node name="CraftButton" type="TextureButton" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1801261933]
+layout_mode = 0
+offset_left = 76.799995
+offset_top = 320.0
+offset_right = 236.79999
+offset_bottom = 402.40002
+texture_normal = ExtResource("2_hhof2")
+stretch_mode = 3
+
+[node name="Carft" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/CraftButton" unique_id=1525058773]
+layout_mode = 0
+offset_left = 19.199993
+offset_top = 12.8
+offset_right = 319.19998
+offset_bottom = 162.8
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 100
+text = "CARFT"
+
+[node name="ResultSlot" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1976937972]
+custom_minimum_size = Vector2(95, 96)
+anchors_preset = 0
+offset_left = 281.59998
+offset_top = 313.6
+offset_right = 376.59998
+offset_bottom = 409.60004
+script = ExtResource("4_outslot")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/ResultSlot" unique_id=1447653276]
+layout_mode = 0
+offset_top = 0.80000114
+offset_right = 150.47021
+offset_bottom = 151.27022
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvsx2")
+
+[node name="ItemTexture" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/ResultSlot" unique_id=1400358479]
+layout_mode = 0
+offset_top = 0.80000925
+offset_right = 150.47021
+offset_bottom = 151.27022
+scale = Vector2(0.638, 0.638)
+mouse_filter = 2
+
+[node name="QuantityLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/ResultSlot" unique_id=496308583]
+layout_mode = 0
+offset_left = 57.600002
+offset_top = 58.40001
+offset_right = 117.600006
+offset_bottom = 133.40002
+scale = Vector2(0.638, 0.638)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/CraftButton" to="." method="on_craft_button_pressed"]

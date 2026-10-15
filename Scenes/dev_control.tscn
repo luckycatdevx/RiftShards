@@ -1,0 +1,128 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgrrkt3lklxun"]
+
+[ext_resource type="Script" uid="uid://7rvk7lw6l7b4" path="res://Scripts/dev_control.gd" id="1_656kw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_656kw"]
+bg_color = Color(0, 0, 0, 0.60784316)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2a0p"]
+bg_color = Color(0.04296875, 0.04296875, 0.04296875, 0.627451)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="DevControl" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+visible = false
+script = ExtResource("1_656kw")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1136.0
+offset_bottom = 632.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_656kw")
+
+[node name="Tile" type="Label" parent="."]
+offset_left = 464.0
+offset_top = 16.0
+offset_right = 684.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 40
+text = "DevControl"
+
+[node name="Time" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SetTime" type="HSlider" parent="Time"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 536.0
+offset_right = 328.0
+offset_bottom = 568.0
+max_value = 10.0
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="Time" type="Label" parent="Time"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 560.0
+offset_right = 328.0
+offset_bottom = 608.0
+theme_override_font_sizes/font_size = 30
+text = "Current Time Is X1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Set" type="Button" parent="Time"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 472.0
+offset_right = 328.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2a0p")
+text = "Set Time"
+
+[node name="Scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Scene" type="Label" parent="Scene"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 440.0
+offset_right = 1120.0
+offset_bottom = 488.0
+theme_override_font_sizes/font_size = 30
+text = "Current Scene Is"
+horizontal_alignment = 1
+
+[node name="Path" type="Label" parent="Scene"]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 488.0
+offset_right = 1120.0
+offset_bottom = 552.0
+theme_override_font_sizes/font_size = 30
+text = "Path:res://Scenes/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SceneName" type="LineEdit" parent="Scene"]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 552.0
+offset_right = 912.0
+offset_bottom = 616.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2a0p")
+placeholder_text = "Scene Name"
+alignment = 1
+
+[node name="GoToScene" type="Button" parent="Scene"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 552.0
+offset_right = 1120.0
+offset_bottom = 616.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2a0p")
+text = "Go To Scene"
+
+[connection signal="pressed" from="Time/Set" to="." method="_on_set_pressed"]
+[connection signal="pressed" from="Scene/GoToScene" to="." method="_on_go_to_scene_pressed"]

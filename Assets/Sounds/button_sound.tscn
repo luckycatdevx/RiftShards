@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://v6hyxicsm77m"]
+
+[ext_resource type="AudioStream" uid="uid://ipjugx3ugsk4" path="res://Assets/Sounds/button.wav" id="1_nosjo"]
+
+[node name="AudioButton" type="AudioStreamPlayer"]
+stream = ExtResource("1_nosjo")
+pitch_scale = 2.5

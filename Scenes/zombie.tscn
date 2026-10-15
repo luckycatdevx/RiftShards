@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://de8ryy43snapr"]
+
+[ext_resource type="Script" uid="uid://bdew31lfbc2iw" path="res://Scripts/zombie.gd" id="1_iyl7r"]
+[ext_resource type="Texture2D" uid="uid://coci6pke8g4n6" path="res://Assets/Texture/Entity/Zombie.png" id="2_4slyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyl7r"]
+size = Vector2(112, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n70j1"]
+size = Vector2(22.939999, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n70j1"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyl7r"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy0uf"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2xga"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4slyf"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ia6i"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx3wb"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0wq0"]
+atlas = ExtResource("2_4slyf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hslf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n70j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyl7r")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_vy0uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2xga")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4slyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ia6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx3wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0wq0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2tw5"]
+size = Vector2(15, 36)
+
+[node name="Zombie" type="CharacterBody2D" unique_id=1094932837 groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_iyl7r")
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1881004346]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionZone" unique_id=866239165]
+position = Vector2(-16, 20.000002)
+scale = Vector2(2.5, 2.5)
+polygon = PackedVector2Array(4.7999997, -14.4, 70.399994, -27.199999, 70.399994, -4.7683716e-07, 4.7999997, -12.799999)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="DetectionZone" unique_id=1291585704]
+position = Vector2(15.999998, -47.999992)
+rotation = 3.1415927
+scale = Vector2(2.5, 2.5)
+polygon = PackedVector2Array(4.7999997, -14.4, 70.399994, -27.199999, 70.399994, -4.7683716e-07, 4.7999997, -12.799999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=985316797]
+shape = SubResource("RectangleShape2D_iyl7r")
+debug_color = Color(0.6, 0.22352941, 0.2, 1)
+
+[node name="AttackZone" type="Area2D" parent="." unique_id=1837259526]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone" unique_id=1549316421]
+position = Vector2(-0.5299998, 0)
+shape = SubResource("RectangleShape2D_n70j1")
+debug_color = Color(0.8984375, 0, 0, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1438241216 groups=["Enemy"]]
+scale = Vector2(1.1250001, 1.125)
+sprite_frames = SubResource("SpriteFrames_hslf5")
+animation = &"idle"
+autoplay = "idle"
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442233855]
+position = Vector2(-0.56, 0)
+shape = SubResource("RectangleShape2D_u2tw5")
+
+[node name="WallCheckRay" type="RayCast2D" parent="." unique_id=1625019463]
+position = Vector2(0, 16)
+target_position = Vector2(20, 0)
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1874950891]
+wait_time = 0.5
+
+[node name="WanderTimer" type="Timer" parent="." unique_id=791918185]
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="AttackZone" to="." method="_on_attack_zone_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timer_timeout"]
